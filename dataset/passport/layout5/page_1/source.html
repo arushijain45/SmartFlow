@@ -1,0 +1,180 @@
+<html>
+<html lang="en">
+<head>
+  <title>Passport Application Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+      body {
+        background-color: #FEEAE6;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        color: #F06060;
+      }
+      .form-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      label {
+        color: #F06060;
+        font-weight: bold;
+      }
+      .form-control:focus {
+        box-shadow: none;
+      }
+      .submit-btn {
+        background-color: #F06060;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+        border: none;
+        font-weight: bold;
+      }
+  </style>
+    <script>
+        function submitForm() {
+		var formData = {
+			fullname: document.getElementById('fullname').value,
+			gender: document.querySelector('input[name="gender"]:checked').value,
+			dob: document.getElementById('dob').value,
+			email: document.getElementById('email').value,
+			phone: document.getElementById('phone').value,
+			address: document.getElementById('address').value,
+			country: document.getElementById('country').value,
+			city: document.getElementById('city').value,
+			zip: document.getElementById('zip').value,
+			agreement: document.getElementById("agreement").checked,
+		};
+		console.log('Form data written to Excel file', formData);
+		alert("Form submitted!");
+        }
+    </script>  
+</head>
+<body>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Passport Application Form</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>Please fill out the form below to apply for passport.</p>
+    </div>
+  </div>
+
+  <form onsubmit="submitForm(); return false;">
+    <div class="form-container">
+      <div class="form-group row">
+        <label for="fullname" class="col-sm-3 col-form-label">Full Name:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="fullname" placeholder="Full Name">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="gender" class="col-sm-3 col-form-label">Gender:</label>
+        <div class="col-sm-9">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="dob" class="col-sm-3 col-form-label">Date of Birth:</label>
+        <div class="col-sm-9">
+          <input type="date" class="form-control" id="dob" placeholder="Date of Birth">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">Email:</label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" id="email" placeholder="Email">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="phone" class="col-sm-3 col-form-label">Phone:</label>
+        <div class="col-sm-9">
+          <input type="tel" class="form-control" id="phone" placeholder="Phone">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="address" class="col-sm-3 col-form-label">Address:</label>
+        <div class="col-sm-9">
+          <textarea class="form-control" id="address" rows="3" placeholder="Address"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="country" class="col-sm-3 col-form-label">Country:</label>
+        <div class="col-sm-9">
+          <select class="form-control" id="country">
+            <option selected>Select Country</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="city" class="col-sm-3 col-form-label">City:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="city" placeholder="City">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="zip" class="col-sm-3 col-form-label">Zip Code:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+        </div>
+      </div>
+
+      <!-- <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="photo">Upload Your Photo:</label>
+          <input type="file" class="form-control-file" id="photo">
+        </div>
+      </div> -->
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="agreement" checked>
+            <label class="form-check-label" for="agreement">
+              I agree to the terms & conditions
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <button type="submit" class="submit-btn btn-block">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+
+</body>
+</html>

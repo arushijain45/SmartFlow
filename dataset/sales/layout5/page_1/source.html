@@ -1,0 +1,190 @@
+<html>
+<html lang="en">
+<head>
+  <title>Sales Lead Generation Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    /* Define custom styles for the form */
+    body {
+      background-color: #f5f5f5;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 1px grey;
+    }
+    .form-container h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="form-container">
+          <h2>Sales Lead Generation Form</h2>
+          <form onsubmit="submitForm(); return false;">
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">First Name *</label>
+              <div class="col-sm-8">
+                <input type="text" id="fname" class="form-control" placeholder="Enter First Name" required>
+                <small id="firstNameHelp" class="form-text text-muted">Please enter your first name</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Last Name *</label>
+              <div class="col-sm-8">
+                <input type="text" id="lname" class="form-control" placeholder="Enter Last Name" required>
+                <small id="lastNameHelp" class="form-text text-muted">Please enter your last name</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Email Address *</label>
+              <div class="col-sm-8">
+                <input type="email" id="email" class="form-control" placeholder="Enter Email Address" required>
+                <small id="emailHelp" class="form-text text-muted">Please enter your email address</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Phone Number *</label>
+              <div class="col-sm-8">
+                <input type="tel" id="phone" class="form-control" placeholder="Enter Phone Number" required>
+                <small id="phoneHelp" class="form-text text-muted">Please enter your phone number</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Company Name *</label>
+              <div class="col-sm-8">
+                <input type="text" id="company" class="form-control" placeholder="Enter Company Name" required>
+                <small id="companyHelp" class="form-text text-muted">Please enter your company name</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">What's your budget? *</label>
+              <div class="col-sm-8">
+                <select class="form-control" id="budget" required>
+                  <option value="">--Select--</option>
+                  <option value="USD 1000">USD 1000</option>
+                  <option value="USD 5000">USD 5000</option>
+                  <option value="USD 10000">USD 10000</option>
+                  <option value="USD 20000">USD 20000</option>
+                  <option value="USD 50000">USD 50000</option>
+                  <option value="USD 100000">USD 100000</option>
+                </select>
+                <small id="budgetHelp" class="form-text text-muted">Please select your budget</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">What services are you interested in? *</label>
+              <div class="col-sm-8">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="service1" name="service" value="Web Design">
+                  <label class="form-check-label" for="service1">
+                    Web Design
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="service2" name="service" value="Web Development">
+                  <label class="form-check-label" for="service2">
+                    Web Development
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="service3" name="service" value="SEO">
+                  <label class="form-check-label" for="service3">
+                    SEO
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="service4" name="service" value="Social Media Marketing">
+                  <label class="form-check-label" for="service4">
+                    Social Media Marketing
+                  </label>
+                </div>
+                <!-- <small id="servicesHelp" class="form-text text-muted">Please select the services you are interested in</small> -->
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">How did you hear about us? *</label>
+              <div class="col-sm-8">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="source1" name="source" value="Search Engine" required>
+                  <label class="form-check-label" for="source1">
+                    Search Engine
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="source2" name="source" value="Social Media">
+                  <label class="form-check-label" for="source2">
+                    Social Media
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="source3" name="source" value="Referral">
+                  <label class="form-check-label" for="source3">
+                    Referral
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="source4" name="source" value="Other">
+                  <label class="form-check-label" for="source4">
+                    Other
+                  </label>
+                </div>
+                <!-- <small id="sourceHelp" class="form-text text-muted">Please tell us how you heard about us</small> -->
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Message *</label>
+              <div class="col-sm-8">
+                <textarea class="form-control" id="message" rows="4" placeholder="Enter Message" required></textarea>
+                <small id="messageHelp" class="form-text text-muted">Please enter your message</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Submit the form and show alert message upon successful submission
+    function submitForm() {
+		  const checkboxes = document.querySelectorAll('input[name="service"]:checked');
+		  let serviceValues = '';
+		  checkboxes.forEach((checkbox) => {
+		      serviceValues += checkbox.value + ', ';;
+		  });
+		  serviceValues = serviceValues.slice(0, -2);
+		  var formData = {
+			first_name: document.getElementById('fname').value,
+			last_name: document.getElementById('lname').value,
+			email: document.getElementById('email').value,
+			phone: document.getElementById('phone').value,
+			company: document.getElementById('company').value,
+			budget: document.getElementById('budget').value,
+			services: serviceValues,
+			source: document.querySelector('input[name="source"]:checked').value,
+			message: document.getElementById('message').value,
+		};
+		console.log('Form data written to Excel file', formData);
+		alert("Form submitted!");
+        }
+  </script>
+</body>
+</html>

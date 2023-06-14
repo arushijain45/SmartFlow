@@ -1,0 +1,175 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Passport Application Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #452580;
+            color: #fff;
+        }
+        .card {
+            margin-top: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        h2 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            color: #452580;
+            margin-top: 20px;
+        }
+        label {
+            font-size: 18px;
+            font-weight: 400;
+            color: #452580;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .form-check-label {
+            font-size: 16px;
+            font-weight: 400;
+            color: #452580;
+            margin-left: 5px;
+        }
+        input[type="submit"] {
+            background-color: #452580;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px 25px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #6f4dbf;
+        }
+    </style>
+    <script>
+        function submitForm() {
+		var formData = {
+			first_name: document.getElementById('first-name').value,
+			last_name: document.getElementById('last-name').value,
+			email: document.getElementById('email').value,
+			phone: document.getElementById('phone').value,
+			dob: document.getElementById('dob').value,
+			gender: document.querySelector('input[name="gender"]:checked').value,
+			country: document.getElementById('country').value,
+			city: document.getElementById('city').value,
+			address: document.getElementById('address').value,
+			terms: document.getElementById("terms").checked,
+		};
+		console.log('Form data written to Excel file', formData);
+		alert("Form submitted!");
+        }
+    </script>    
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"><h2>Passport Application Form</h2></div>
+                    <div class="card-body">
+                        <form action="#" method="post" onsubmit="submitForm(); return false;">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" class="form-control" id="first-name" placeholder="Enter your first name" required>
+                                    <small class="form-text text-muted">Please enter your first name as it appears in your identification documents.</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" class="form-control" id="last-name" placeholder="Enter your last name" required>
+                                    <small class="form-text text-muted">Please enter your last name as it appears in your identification documents.</small>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+                                    <small class="form-text text-muted">Please provide a valid email address.</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                                    <small class="form-text text-muted">Please provide a valid phone number.</small>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" class="form-control" id="dob" placeholder="Enter your date of birth" required>
+                                    <small class="form-text text-muted">Please enter your date of birth as it appears in your identification documents.</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="gender">Gender</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                        <label class="form-check-label" for="female">Female</label>
+                                    </div>
+                                    <small class="form-text text-muted">Please select your gender.</small>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="country">Country</label>
+                                    <select id="country" class="form-control" required>
+                                        <option disabled selected value="">Choose your country</option>
+                                        <option>Australia</option>
+                                        <option>Canada</option>
+                                        <option>India</option>
+                                        <option>United Kingdom</option>
+                                        <option>United States</option>
+                                    </select>
+                                    <small class="form-text text-muted">Please select your country of residence.</small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter your city of residence" required>
+                                    <small class="form-text text-muted">Please enter your city of residence as it appears in your identification documents.</small>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="address">Address</label>
+                                    <textarea class="form-control" id="address" rows="3" placeholder="Enter your complete address" required></textarea>
+                                    <small class="form-text text-muted">Please enter your complete address as it appears in your identification documents.</small>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I have read and agree to the <a href="#">terms and conditions</a>.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <input type="submit" value="Submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popperjs-core.min.js"
+        integrity="sha384-q+QgZ8uiVZeyX5LKC7Vhm5WfCr8aM0nHn3Mq3wGtX5jjVd5CtW1uV7iAZllyq3H7"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

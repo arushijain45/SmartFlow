@@ -1,0 +1,172 @@
+<html>
+<head>
+	<title>New Patient Registration Form</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+	<style>
+		body {
+			background-color: #999;
+			color: #fff;
+		}
+		.form-group label {
+			font-weight: bold;
+		}
+		.form-check label {
+			font-weight: normal;
+		}
+	</style>
+    <script>
+        function submitForm() {		 
+		var formData = {
+			name: document.getElementById('name').value,
+			dob: document.getElementById('dob').value,
+			gender: document.getElementById('gender').value,
+			address: document.getElementById('address').value,
+			phone: document.getElementById('phone').value,
+			email: document.getElementById('email').value,
+			insurance: document.getElementById('insurance').value,
+			emergency: document.getElementById('emergency').value,
+			bloodtype: document.getElementById('blood').value,
+			allergies: document.getElementById('allergies').value,
+			medications: document.getElementById('medications').value,
+			conditions: document.getElementById('conditions').value,
+			smoke: document.querySelector('input[name="smoke"]:checked').value,
+			alcohol: document.querySelector('input[name="alcohol"]:checked').value,
+			exercise: document.querySelector('input[name="exercise"]:checked').value,
+		};
+
+		console.log('Form data written to Excel file', formData);
+            	alert("Form submitted!");
+        }
+    </script>
+</head>
+<body>
+	<div class="container">
+		<h1>New Patient Registration Form</h1>
+		<form onsubmit="submitForm(); return false;">
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="dob">Date of Birth</label>
+					<input type="date" class="form-control" id="dob" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="gender">Gender</label>
+					<select class="form-control" id="gender" required>
+						<option value="">Choose...</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="address">Address</label>
+					<input type="text" class="form-control" id="address" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="phone">Phone Number</label>
+					<input type="tel" class="form-control" id="phone" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="email">Email</label>
+					<input type="email" class="form-control" id="email" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="insurance">Insurance Provider</label>
+					<input type="text" class="form-control" id="insurance" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="emergency">Emergency Contact</label>
+					<input type="text" class="form-control" id="emergency" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="blood">Blood Type</label>
+					<select class="form-control" id="blood" required>
+						<option value="">Choose...</option>
+						<option value="a+">A+ve</option>
+						<option value="a-">A-ve</option>
+						<option value="b+">B+ve</option>
+						<option value="b-">B-ve</option>
+						<option value="ab+">AB+ve</option>
+						<option value="ab-">AB-ve</option>
+						<option value="o+">O+ve</option>
+						<option value="o-">O-ve</option>
+					</select>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="allergies">Allergies</label>
+					<input type="text" class="form-control" id="allergies" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="medications">Current Medications</label>
+					<input type="text" class="form-control" id="medications" required>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="conditions">Pre-existing Conditions</label>
+					<input type="text" class="form-control" id="conditions" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label>Do you smoke?</label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="smoke" id="smoke-yes" value="yes" required>
+						<label class="form-check-label" for="smoke-yes">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="smoke" id="smoke-no" value="no" required>
+						<label class="form-check-label" for="smoke-no">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="form-group col-md-4">
+					<label>Do you drink alcohol?</label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="alcohol" id="alcohol-yes" value="yes" required>
+						<label class="form-check-label" for="alcohol-yes">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="alcohol" id="alcohol-no" value="no" required>
+						<label class="form-check-label" for="alcohol-no">
+							No
+						</label>
+					</div>
+				</div>
+				<div class="form-group col-md-4">
+					<label>Do you exercise regularly?</label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exercise" id="exercise-yes" value="yes" required>
+						<label class="form-check-label" for="exercise-yes">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="exercise" id="exercise-no" value="no" required>
+						<label class="form-check-label" for="exercise-no">
+							No
+						</label>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Complaint Form</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+    <script>
+        function submitForm() {
+              const checkboxes = document.querySelectorAll('input[name="terms"]:checked');
+              let productValues = '';
+              checkboxes.forEach((checkbox) => {
+                  productValues += checkbox.value + ', ';;
+              });
+              productValues = productValues.slice(0, -2);
+              var formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                complaint_details: document.getElementById('complaint-details').value,
+                complaint_type: document.getElementById('complaint-type').value,
+                satisfaction_level: document.querySelector('input[name="success-rate"]:checked').value,
+                terms: productValues,
+            };
+            console.log('Form data written to Excel file', formData);
+
+            alert("Form submitted!");
+        }
+    </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Customer Complaint Form</h3>
+        <form id="complaint-form" action="#" onsubmit="submitForm(); return false;" method="post">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+            <small id="name-help" class="form-text text-muted">Please enter your full name</small>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            <small id="email-help" class="form-text text-muted">Please enter a valid email address</small>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+            <small id="phone-help" class="form-text text-muted">Please enter your phone number starting with +(country code)</small>
+          </div>
+          <div class="form-group">
+            <label for="complaint-type">Type of Complaint</label>
+            <select class="form-control" id="complaint-type" name="complaint-type" required>
+              <option value="">Select an option</option>
+              <option value="product">Product</option>
+              <option value="service">Service</option>
+              <option value="staff">Staff</option>
+              <option value="other">Other</option>
+            </select>
+            <small id="complaint-type-help" class="form-text text-muted">Please select the type of complaint.</small>
+          </div>
+          <div class="form-group">
+            <label for="complaint-details">Complaint Details</label>
+            <textarea class="form-control" id="complaint-details" name="complaint-details" placeholder="Enter the details of your complaint" rows="5" required></textarea>
+            <small id="complaint-details-help" class="form-text text-muted">Please enter the details of your complaint</small>
+          </div>
+          <div class="form-group">
+            <label for="success-rate4">Please rate your satisfaction level: </label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="success-rate" id="success-rate1" value="0-25%">
+              <label class="form-check-label" for="success-rate1">0-25%</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="success-rate" id="success-rate2" value="25-50%">
+              <label class="form-check-label" for="success-rate2">25-50%</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="success-rate" id="success-rate3" value="50-75%">
+              <label class="form-check-label" for="success-rate3">50-75%</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="success-rate" id="success-rate4" value="75-100%">
+              <label class="form-check-label" for="success-rate4">75-100%</label>
+            </div>
+            <!-- <small id="success-rate-help" class="form-text text-muted">Please rate your satisfaction level.</small> -->
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+              <label class="form-check-label" for="terms">I agree to the Terms and Conditions</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+name,email,phone,company,product,budget,additionalServices
+Emily Anthony,emily.anthony@gmail.com,9856784596,Tata Motors,Air Conditioner,less than INR50000,"installation, maintenance"
+J. K. Rowling,rowling_jk@gmail.com,5869784545,Wonka Industries,Refrigerator,less than INR50000,maintenance
+Agatha Christie,agatha.christ@gmail.com,8596858500,Acme Corp.,Ceiling Fan,between INR50000 and INR70000,training
+Stephen King,stephen12@gmail.com,8800124450,Stark Industries,Washing Machine,more than INR70000,"installation, training"
+George Eliot,eliot_george09@gmail.com,9685706859,Gekko & Co.,Refrigerator,more than INR70000,"Installation, maintenance, training"

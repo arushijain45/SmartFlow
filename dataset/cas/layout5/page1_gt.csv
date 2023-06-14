@@ -1,0 +1,6 @@
+conf_name,edition,attendance_mode,conf_category,start_date,end_date,last_regs_date,participation_type,country,location,international_travel
+CVPR,2023,Virtual,Workshop,2023-06-18,2023-06-22,2023-06-15,Presenter,Canada,Vancouver Convention Centre,1
+CIKM,2023,In-person,Main Track,2023-10-21,2023-10-25,2023-05-26,Presenter,United Kingdom,University of Birmingham and Eastside Rooms,0
+IbPRIA,2023,Hybrid,Main Track,2023-06-27,2023-06-30,2023-06-20,Attendee,Spain,Alicante,1
+ICME,2023,Virtual,Workshop,2023-07-10,2023-07-14,2023-05-15,Presenter,Australia,Brisbane,1
+BMVC,2023,In-person,Main Track,2023-11-20,2023-11-24,2023-05-12,Keynote Speaker,United Kingdom,Aberdeen,0

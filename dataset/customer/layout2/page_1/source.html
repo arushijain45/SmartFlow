@@ -1,0 +1,150 @@
+<html>
+<html>
+<head>
+	<title>Customer Complaint Form</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+		.form-group label {
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: #333;
+		}
+		.form-group .hint {
+			font-size: 0.8rem;
+			color: #999;
+			margin-top: 0.3rem;
+		}
+	</style>
+    <script>
+        function submitForm() {
+
+            const checkboxes = document.querySelectorAll('input[name="document-1"]:checked');
+            let productValues = '';
+            checkboxes.forEach((checkbox) => {
+                productValues += checkbox.value + ', ';;
+            });
+            productValues = productValues.slice(0, -2);
+
+            const checkboxes_2 = document.querySelectorAll('input[name="document-2"]:checked');
+              let productValues_2 = '';
+              checkboxes_2.forEach((checkbox) => {
+                  productValues_2 += checkbox.value + ', ';;
+              });
+              productValues_2 = productValues_2.slice(0, -2);
+
+            var formData = {
+              name: document.getElementById('name').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              order_no: document.getElementById('order-number').value,
+              deliver_date: document.getElementById('delivery-date').value,
+              complaint_details: document.getElementById('complaint-details').value,
+              complaint_type: document.getElementById('complaint-type').value,
+              complaint_priority: document.querySelector('input[name="priority"]:checked').value,
+              support_doc_1: productValues,
+              support_doc_2: productValues_2,
+          };
+          console.log('Form data written to Excel file', formData);
+
+            alert("Form submitted!");
+        }
+    </script>
+</head>
+<body>
+	<div class="container my-5">
+		<h2 class="text-center mb-5">Customer Complaint Form</h2>
+		<form id="complaint-form" onsubmit="submitForm(); return false;">
+			<div class="row">
+				<div class="col-md-4 form-group">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name">
+					<span class="hint">Please enter your full name</span>
+				</div>
+				<div class="col-md-4 form-group">
+					<label for="email">Email address</label>
+					<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+					<span class="hint">We'll never share your email with anyone else</span>
+				</div>
+				<div class="col-md-4 form-group">
+					<label for="phone">Phone number</label>
+					<input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+					<span class="hint">Please enter your phone number</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 form-group">
+					<label for="complaint-type">Complaint type</label>
+					<select class="form-control" id="complaint-type" name="complaint-type">
+						<option>Product Quality</option>
+						<option>Delivery Time</option>
+						<option>Customer Service</option>
+						<option>Other</option>
+					</select>
+					<span class="hint">Please select the type of your complaint</span>
+				</div>
+				<div class="col-md-4 form-group">
+					<label for="delivery-date">Delivery date</label>
+					<input type="date" class="form-control" id="delivery-date" name="delivery-date">
+					<span class="hint">Please select the delivery date</span>
+				</div>
+				<div class="col-md-4 form-group">
+					<label for="order-number">Order number</label>
+					<input type="text" class="form-control" id="order-number" name="order-number" placeholder="Enter your order number">
+					<span class="hint">Please enter your order number</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 form-group">
+					<label for="complaint-details">Complaint details</label>
+					<textarea class="form-control" id="complaint-details" name="complaint-details" placeholder="Enter your complaint details"></textarea>
+					<span class="hint">Please describe your complaint in detail</span>
+				</div>
+				<div class="col-md-4 form-group">
+					<label for="priority">Complaint priority</label>
+					<div>
+						<input type="radio" id="priority-high" name="priority" value="High">
+						<label for="priority-high">High</label>
+					</div>
+					<div>
+						<input type="radio" id="priority-medium" name="priority" value="Medium">
+						<label for="priority-medium">Medium</label>
+					</div>
+					<div>
+						<input type="radio" id="priority-low" name="priority" value="Low">
+						<label for="priority-low">Low</label>
+					</div>
+					<span class="hint">Please select the priority of your complaint</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 form-group">
+					<label>Do you have any supporting documents?</label>
+					<div>
+						<input type="checkbox" id="document-1" name="document-1" value="document-1">
+						<label for="document-1">Document 1</label>
+					</div>
+					<div>
+						<input type="checkbox" id="document-2" name="document-2" value="document-2">
+						<label for="document-2">Document 2</label>
+					</div>
+					<span class="hint">If you have any supporting documents, please select them</span>
+				</div>
+			</div>
+			<div class="text-center mt-5">
+				<button type="submit" class="btn btn-primary px-5">Submit</button>
+			</div>
+		</form>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<script>
+		$(document).ready(function() {
+			$('#complaint-form').submit(function(e) {
+				e.preventDefault();
+				Swal.fire('Form submitted !!');
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<html>
+<html lang="en">
+<head>
+  <title>Customer Complaint Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    /* style for organic elements and bold pops of color */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #142619;
+      color: #fff;
+    }
+    .form-group label {
+      font-weight: bold;
+    }
+    .form-group input[type="text"], .form-group textarea {
+      background-color: #273b34;
+      border: none;
+      border-radius: 0;
+      color: #fff;
+      font-size: 16px;
+      box-shadow: none;
+    }
+    .form-group input[type="text"]::placeholder, .form-group textarea::placeholder {
+      color: #a6c2ab;
+    }
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #a6c2ab;
+    }
+    .btn-custom {
+      background-color: #ed9920;
+      border-color: #ed9920;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 90px;
+      padding: 8px 20px;
+      margin-top: 10px;
+    }
+    .btn-custom:hover, .btn-custom:focus {
+      color: #fff;
+      background-color: #af8621;
+      border-color: #af8621;
+    }
+    .form-hint {
+      font-size: 14px;
+      color: #a6c2ab;
+      margin-left: 10px;
+      margin-top: 5px;
+    }
+  </style>
+    <script>
+        function submitForm() {
+
+            const checkboxes = document.querySelectorAll('input[name="agree"]:checked');
+            let productValues = '';
+            checkboxes.forEach((checkbox) => {
+                productValues += checkbox.value + ', ';;
+            });
+            productValues = productValues.slice(0, -2);
+
+    //         const checkboxes_2 = document.querySelectorAll('input[name="document-2"]:checked');
+    //           let productValues_2 = '';
+    //           checkboxes_2.forEach((checkbox) => {
+    //               productValues_2 += checkbox.value + ', ';;
+    //           });
+    //           productValues_2 = productValues_2.slice(0, -2);
+
+            var formData = {
+              name: document.getElementById('inputName').value,
+              email: document.getElementById('inputEmail').value,
+              phone: document.getElementById('inputPhone').value,
+              order_no: document.getElementById('inputOrderNumber').value,
+              subject: document.getElementById('inputSubject').value,
+  //             deliver_date: document.getElementById('delivery-date').value,
+              message: document.getElementById('inputMessage').value,
+  //             complaint_details: document.getElementById('complaint-details').value,
+              // complaint_type: document.getElementById('complaint-type').value,
+              department: document.getElementById('selectDepartment').value,
+  //             complaint_priority: document.querySelector('input[name="priority"]:checked').value,
+              way_to_contact: document.querySelector('input[name="contactMethod"]:checked').value,
+  //             support_doc_1: productValues,
+  //             support_doc_2: productValues_2,
+              terms: productValues,
+          };
+          console.log('Form data written to Excel file', formData);
+
+            alert("Form submitted!");
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+  <h2 class="text-center my-5">Customer Complaint Form</h2>
+  <form onsubmit="submitForm(); return false;">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName">Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter your name">
+        <span class="form-hint">As it appears on invoice</span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputEmail">Email</label>
+        <input type="text" class="form-control" id="inputEmail" placeholder="Enter your email">
+        <span class="form-hint">We'll never share your email with anyone else.</span>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputPhone">Phone</label>
+        <input type="text" class="form-control" id="inputPhone" placeholder="Enter your phone number">
+        <span class="form-hint">Optional</span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputOrderNumber">Order Number</label>
+        <input type="text" class="form-control" id="inputOrderNumber" placeholder="Enter your order number if applicable">
+        <span class="form-hint">Optional</span>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="inputSubject">Subject</label>
+        <input type="text" class="form-control" id="inputSubject" placeholder="Enter subject of your complaint">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="inputMessage">Message</label>
+        <textarea class="form-control" id="inputMessage" rows="5" placeholder="Enter your complaint message"></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="selectDepartment">Select Department</label>
+        <select id="selectDepartment" class="form-control">
+          <option selected>Choose...</option>
+          <option>Customer Service</option>
+          <option>Technical Support</option>
+          <option>Shipping and Delivery</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label>Choose the best way to contact you</label>
+        <br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="contactMethod" id="radioEmail" value="email">
+          <label class="form-check-label" for="radioEmail">Email</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="contactMethod" id="radioPhone" value="phone">
+          <label class="form-check-label" for="radioPhone">Phone</label>
+        </div>
+        <span class="form-hint">We will get in touch within 24 hours</span>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="checkAgree" value="agree">
+          <label class="form-check-label" for="checkAgree">I agree to the terms and conditions</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-custom">Submit</button>
+  </form>
+</div>
+
+<script>
+  $('form').submit(function() {
+    alert("Form submitted !!");
+  });
+</script>
+
+</body>
+</html>

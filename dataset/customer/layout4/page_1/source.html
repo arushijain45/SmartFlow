@@ -1,0 +1,166 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Complaint Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: beige;
+        }
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .form-header {
+            background-color: #800020;
+            color: #fff;
+            padding: 20px;
+        }
+        .form-header h2 {
+            margin: 0;
+            font-family: 'fira-sans', sans-serif;
+        }
+        .form-group label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #544f4f;
+        }
+        .form-control {
+            font-size: 16px;
+        }
+        .form-hint {
+            font-size: 14px;
+            color: #888;
+        }
+        .btn-submit {
+            background-color: #800020;
+            color: #fff;
+        }
+        .btn-submit:hover {
+            background-color: #544f4f;
+            color: #fff;
+        }
+    </style>
+    <script>
+        function submitForm() {
+
+            const checkboxes = document.querySelectorAll('input[name="marketing-consent"]:checked');
+            let productValues = '';
+            checkboxes.forEach((checkbox) => {
+                productValues += checkbox.value + ', ';;
+            });
+            productValues = productValues.slice(0, -2);
+
+    //         const checkboxes_2 = document.querySelectorAll('input[name="document-2"]:checked');
+    //           let productValues_2 = '';
+    //           checkboxes_2.forEach((checkbox) => {
+    //               productValues_2 += checkbox.value + ', ';;
+    //           });
+    //           productValues_2 = productValues_2.slice(0, -2);
+
+            var formData = {
+              fname: document.getElementById('first-name').value,
+              lname: document.getElementById('last-name').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              order_no: document.getElementById('order-number').value,
+  //             deliver_date: document.getElementById('delivery-date').value,
+              complaint_type: document.getElementById('complaint-type').value,
+              complaint_details: document.getElementById('complaint-details').value,
+
+              preffered_contact: document.querySelector('input[name="preferred-contact"]:checked').value,
+              consent: productValues,
+  //             support_doc_2: productValues_2,
+          };
+          console.log('Form data written to Excel file', formData);
+
+            alert("Form submitted!");
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="submitForm(); return false;">
+        <div class="form-header">
+            <h2>Customer Complaint Form</h2>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" class="form-control" id="first-name" placeholder="Enter First Name">
+                <small class="form-hint">Enter your First Name</small>
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" class="form-control" id="last-name" placeholder="Enter Last Name">
+                <small class="form-hint">Enter your Last Name</small>
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                <small class="form-hint">Enter your Email Address</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-4 form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter Phone Number">
+                <small class="form-hint">Enter your Phone Number</small>
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="order-number">Order Number</label>
+                <input type="text" class="form-control" id="order-number" placeholder="Enter Order Number">
+                <small class="form-hint">Enter your Order Number</small>
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="complaint-type">Complaint Type</label>
+                <select id="complaint-type" class="form-control">
+                    <option selected disabled>Select complaint type</option>
+                    <option value="delivery">Delivery Issue</option>
+                    <option value="product">Product Issue</option>
+                    <option value="customer-service">Customer Service Issue</option>
+                    <option value="other">Other Issue</option>
+                </select>
+                <small class="form-hint">Select your Complaint Type</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="complaint-details">Complaint Details</label>
+            <textarea class="form-control" id="complaint-details" rows="4" placeholder="Enter complaint details"></textarea>
+            <small class="form-hint">Enter your Complaint Details</small>
+        </div>
+        <div class="form-group">
+            <label for="preferred-contact">Preferred Contact</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="preferred-contact" id="radio-email" value="email">
+                <label class="form-check-label" for="radio-email">Email</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="preferred-contact" id="radio-phone" value="phone">
+                <label class="form-check-label" for="radio-phone">Phone</label>
+            </div>
+            <small class="form-hint">Select your Preferred Contact Method</small>
+        </div>
+        <div class="form-group">
+            <label for="marketing-consent">Marketing Consent</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="check-marketing-consent" name="marketing-consent">
+                <label class="form-check-label" for="check-marketing-consent">I give my consent for future marketing communications</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-submit">Submit</button>
+    </form>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
+    <!-- <script>
+        $(document).ready(function(){
+            $('form').submit(function(){
+                alert('Form submitted !!');
+            });
+        });
+    </script> -->
+</body>
+</html>

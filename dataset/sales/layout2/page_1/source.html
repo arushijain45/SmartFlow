@@ -1,0 +1,176 @@
+<html>
+<html>
+<head>
+    <title>Sales Lead Generation Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #1abc9c; /* Turquoise */
+        }
+        form {
+            background-color: #fff; /* White */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+        .row > div[class^="col-"]:nth-child(n+2), .row > div[class^="col-"]:nth-child(n+5), .row > div[class^="col-"]:nth-child(n+8) {
+            margin-top: 50px;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-hint {
+            font-size: 14px;
+            color: #999;
+        }
+        .btn-submit {
+            background-color: #1abc9c; /* Turquoise */
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn-submit:hover {
+            background-color: #128c76; /* Darker Turquoise */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 form-header">
+                <h2>Sales Lead Generation Form</h2>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <form onsubmit="submitForm(); return false;">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="name">Name: </label>
+                        <input type="text" id="name" placeholder="Enter your name">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="email" id="email" placeholder="Enter your email address">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone: </label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name: </label>
+                        <input type="text" id="company" placeholder="Enter your company name">
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="industry">Industry: </label>
+                        <select id="industry">
+                            <option value="">Select an option</option>
+                            <option value="IT">IT</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Interested in: </label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" name="interested" class="form-check-input" id="interested-product" value="Product">
+                            <label class="form-check-label" for="interested-product">Product</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" name="interested" class="form-check-input" id="interested-services" value="Services">
+                            <label class="form-check-label" for="interested-services">Services</label>
+                        </div>
+                        <!-- <small class="form-hint">Please select your interests</small> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget: </label>
+                        <input type="number" id="budget" placeholder="Enter your budget">
+
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="address">Address: </label>
+                        <textarea id="address" placeholder="Enter your address"></textarea>
+
+                    </div>
+                    <div class="form-group">
+                        <label>How did you hear about us?</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="source-online" name="source" value="Online">
+                            <label class="form-check-label" for="source-online">Online</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="source-referral" name="source" value="Referral">
+                            <label class="form-check-label" for="source-referral">Referral</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" id="source-ad" name="source" value="Advertisement">
+                            <label class="form-check-label" for="source-ad">Advertisement</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-submit">Submit</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        function submitForm() {
+		  const checkboxes = document.querySelectorAll('input[name="interested"]:checked');
+		  let interestedValues = '';
+		  checkboxes.forEach((checkbox) => {
+		      interestedValues += checkbox.value + ', ';;
+		  });
+		  interestedValues = interestedValues.slice(0, -2);
+		  var formData = {
+			name: document.getElementById('name').value,
+			email: document.getElementById('email').value,
+			phone: document.getElementById('phone').value,
+			company: document.getElementById('company').value,
+			product: document.getElementById('industry').value,
+			interested: interestedValues,
+			budget: document.getElementById('budget').value,
+			address: document.getElementById('address').value,
+			source: document.querySelector('input[name="source"]:checked').value
+		};
+		console.log('Form data written to Excel file', formData);
+		alert("Form submitted!");
+        }
+    </script>
+</body>
+</html>

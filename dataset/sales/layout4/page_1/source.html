@@ -1,0 +1,116 @@
+<html>
+<html lang="en">
+<head>
+  <title>Sales Lead Generation Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+    .form-group { margin-bottom: 15px; }
+    .btn-submit { margin-top: 15px; }
+    .hint { font-size: 12px; }
+    /* Use below css for custom Cream and Navy color */
+    /* .form-control, .form-check-input { background-color: #F6EEDF; border: none; }
+    .form-control:focus { box-shadow: none; border-color: #25274D; }
+    .btn-submit { background-color: #25274D; border-color: #25274D; color: #fff; } */
+  </style>
+</head>
+<body>
+
+<div class="container" style="padding: 20px">
+  <h2>Sales Lead Generation Form</h2>
+  <div style="margin-top: 20px"></div>
+  <form onsubmit="submitForm(); return false;">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="fname">First Name:</label>
+          <input type="text" class="form-control" id="fname" placeholder="Enter first name">
+          <small class="form-text text-muted hint">Please enter your first name</small>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="lname">Last Name:</label>
+          <input type="text" class="form-control" id="lname" placeholder="Enter last name">
+          <small class="form-text text-muted hint">Please enter your last name</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email">
+          <small class="form-text text-muted hint">Please enter your email address</small>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+          <small class="form-text text-muted hint">Please enter your phone number</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="country">Country:</label>
+      <select class="form-control" id="country">
+        <option value="">Select Country</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="Canada">Canada</option>
+      </select>
+      <small class="form-text text-muted hint">Please select your country</small>
+    </div>
+    <div class="form-group">
+      <label>Please select product(s) of interest:</label>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="product" value="AC">AC
+        </label>
+      </div>
+      <div class="form-check" style="padding-top: 4px">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="product" value="Washing Machine">Washing Machine
+        </label>
+      </div>
+      <div class="form-check" style="padding-top: 4px">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="product" value="Refrigerator">Refrigerator
+        </label>
+      </div>
+      <!-- <small class="form-text text-muted hint">Please select product(s) of interest</small> -->
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+  </form>
+</div>
+
+<script>
+  // Submit form with alert message
+  function submitForm() {
+		  const checkboxes = document.querySelectorAll('input[name="product"]:checked');
+		  let productValues = '';
+		  checkboxes.forEach((checkbox) => {
+		      productValues += checkbox.value + ', ';;
+		  });
+		  productValues = productValues.slice(0, -2);
+		  var formData = {
+			first_name: document.getElementById('fname').value,
+			last_name: document.getElementById('lname').value,
+			email: document.getElementById('email').value,
+			phone: document.getElementById('phone').value,
+			country: document.getElementById('country').value,
+			product: productValues,
+		};
+		console.log('Form data written to Excel file', formData);
+		alert("Form submitted!");
+        }
+</script>
+
+</body>
+</html>

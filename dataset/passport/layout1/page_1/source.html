@@ -1,0 +1,141 @@
+<html>
+<html lang="en">
+<head>
+  <title>Passport Application Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function submitForm() {
+
+            const checkboxes = document.querySelectorAll('input[name="terms"]:checked');
+            let productValues = '';
+            checkboxes.forEach((checkbox) => {
+                productValues += checkbox.value + ', ';;
+            });
+            productValues = productValues.slice(0, -2);
+            var formData = {
+              fname: document.getElementById('fname').value,
+              lname: document.getElementById('lname').value,
+              dob: document.getElementById('dob').value,
+              gender: document.querySelector('input[name="gender"]:checked').value,
+              address: document.getElementById('address').value,
+              country: document.getElementById('country').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              occupation: document.getElementById('occupation').value,
+              terms: productValues,
+          };
+          console.log('Form data written to Excel file', formData);
+
+            alert("Form submitted!");
+        }
+    </script>
+</head>
+<body style="background-color: #f5f5f5">
+<div class="container-fluid mt-5">
+  <div class="card">
+    <div class="card-header bg-success text-white font-weight-bold">Passport Application Form</div>
+    <div class="card-body">
+      <form action="" onsubmit="submitForm(); return false;">
+        <div class="row">
+          <!-- Column 1 -->
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="fname">First Name:</label>
+              <input type="text" class="form-control" id="fname" placeholder="Enter First Name">
+              <small class="form-text text-muted">Please enter your first name</small>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name:</label>
+              <input type="text" class="form-control" id="lname" placeholder="Enter Last Name">
+              <small class="form-text text-muted">Please enter your last name</small>
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth:</label>
+              <input type="date" class="form-control" id="dob" placeholder="Enter DOB">
+              <small class="form-text text-muted">Please enter your date of birth in the format YYYY-MM-DD</small>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                <label class="form-check-label" for="male">
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">
+                  Female
+                </label>
+              </div>
+              <small class="form-text text-muted">Please select your gender</small>
+            </div>
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"></textarea>
+              <small class="form-text text-muted">Please enter your complete address</small>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="country">Country:</label>
+              <select class="form-control" id="country">
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+              </select>
+              <small class="form-text text-muted">Please select your country</small>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone:</label>
+              <input type="text" class="form-control" id="phone" placeholder="Enter Phone">
+              <small class="form-text text-muted">Please enter your phone number without spaces</small>
+            </div>
+          </div>
+
+          <!-- Column 4 -->
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter Email">
+              <small class="form-text text-muted">Please enter a valid email address</small>
+            </div>
+            <div class="form-group">
+              <label for="occupation">Occupation:</label>
+              <input type="text" class="form-control" id="occupation" placeholder="Enter Occupation">
+              <small class="form-text text-muted">Please enter your occupation</small>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="terms" name="terms">
+              <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+$(document).ready(function(){
+  $("form").submit(function(){
+    alert("Form submitted!!");
+  });
+});
+</script> -->
+
+</body>
+</html>

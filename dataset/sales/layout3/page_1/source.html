@@ -1,0 +1,122 @@
+<html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <title>Sales Lead Form</title>
+   </head>
+   <body>
+      <div class="container-fluid" style="padding: 20px">
+         <div class="row">
+            <div class="col-md-4">
+               <form onsubmit="submitForm(); return false;">
+                  <div class="form-group">
+                     <label for="name">Name:</label>
+                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                     <small class="form-text text-muted">Enter your name</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="email">Email:</label>
+                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" required>
+                     <small class="form-text text-muted">Enter your email</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="phone">Phone:</label>
+                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone" required>
+                     <small class="form-text text-muted">Enter your phone number</small>
+                  </div>
+                  <div class="form-group">
+                     <label for="company">Company:</label>
+                     <input type="text" class="form-control" id="company" name="company" placeholder="Enter Company Name" required>
+                     <small class="form-text text-muted">Enter company name</small>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                  <div class="form-group">
+                     <label for="country">Country:</label>
+                     <select class="form-control" name="country" id="country" required>
+                        <option selected disabled>Select your country</option>
+                        <option value="usa">USA</option>
+                        <option value="uk">UK</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                     </select>
+                  </div>
+                  <div class="form-group">
+                     <label for="products">Products you are interested in:</label><br>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="product1" value="AC" name="product">
+                        <label class="form-check-label" for="product1">AC</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="product2" value="Washing Machine" name="product">
+                        <label class="form-check-label" for="product2">Washing Machine</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="product3" value="Dish Washer" name="product">
+                        <label class="form-check-label" for="product3">Dish Washer</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="product4" value="Refrigerator" name="product">
+                        <label class="form-check-label" for="product4">Refrigerator</label>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="budget">Budget in USD:</label><br>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="budget1" name="budget" value="100-499">
+                        <label class="form-check-label" for="budget1">100-499</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="budget2" name="budget" value="500-999">
+                        <label class="form-check-label" for="budget2">500-999</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="budget3" name="budget" value="1000-4999">
+                        <label class="form-check-label" for="budget3">1000-4999</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="budget4" name="budget" value="5000+">
+                        <label class="form-check-label" for="budget4">5000+</label>
+                     </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                  <div class="form-group">
+                     <label for="message">Message:</label>
+                     <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter Message"></textarea>
+                     <small class="form-text text-muted">Enter your message</small>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script>
+         function submitForm() {
+		  const checkboxes = document.querySelectorAll('input[name="product"]:checked');
+		  let productValues = '';
+		  checkboxes.forEach((checkbox) => {
+		      productValues += checkbox.value + ', ';;
+		  });
+		  productValues = productValues.slice(0, -2);
+		  var formData = {
+			name: document.getElementById('name').value,
+			email: document.getElementById('email').value,
+			phone: document.getElementById('phone').value,
+			company: document.getElementById('company').value,
+			country: document.getElementById('country').value,
+			product: productValues,
+			budget: document.querySelector('input[name="budget"]:checked').value,
+			message: document.getElementById('message').value
+		};
+		console.log('Form data written to Excel file', formData);
+		alert("Form submitted!");
+        }
+      </script>
+   </body>
+</html>

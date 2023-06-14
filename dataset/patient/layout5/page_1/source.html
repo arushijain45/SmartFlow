@@ -1,0 +1,114 @@
+<html>
+<head>
+	<title>New Patient Registration Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style>
+		.form-group {
+			margin-bottom: 20px;
+		}
+		.col-label {
+			text-align: right;
+			padding-top: 7px;
+		}
+	</style>
+    <script>
+        function submitForm() {		 
+		var formData = {
+			name: document.getElementById('name').value,
+			dob: document.getElementById('dob').value,
+			gender: document.getElementById('gender').value,
+			address: document.getElementById('address').value,
+			phone: document.getElementById('phone').value,
+			emergency: document.getElementById('emergency').value,
+			bloodtype: document.getElementById('blood').value,
+			conditions: document.getElementById('issue').value,
+			insurance: document.querySelector('input[name="insurance"]:checked').value,
+		};
+
+		console.log('Form data written to Excel file', formData);
+            	alert("Form submitted!");
+        }
+    </script>
+</head>
+<body>
+	<div class="container">
+		<h2>New Patient Registration Form</h2>
+		<form onsubmit="submitForm(); return false;">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="name" class="col-label">Name:</label>
+						<input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+					</div>
+					<div class="form-group">
+						<label for="dob" class="col-label">Date of Birth:</label>
+						<input type="date" class="form-control" id="dob" required>
+					</div>
+					<div class="form-group">
+						<label for="gender" class="col-label">Gender:</label>
+						<select class="form-control" id="gender" required>
+							<option value="">Select your gender</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="address" class="col-label">Address:</label>
+						<textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="phone" class="col-label">Phone Number:</label>
+						<input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+					</div>
+					<div class="form-group">
+						<label for="emergency" class="col-label">Emergency Contact:</label>
+						<input type="text" class="form-control" id="emergency" placeholder="Enter emergency contact name and phone number" required>
+					</div>
+					<div class="form-group">
+						<label for="blood" class="col-label">Blood Type:</label>
+						<select class="form-control" id="blood" required>
+							<option value="">Select your blood type</option>
+							<option value="A+">A+ve</option>
+							<option value="A-">A-ve</option>
+							<option value="B+">B+ve</option>
+							<option value="B-">B-ve</option>
+							<option value="AB+">AB+ve</option>
+							<option value="AB-">AB-ve</option>
+							<option value="O+">O+ve</option>
+							<option value="O-">O-ve</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="issue" class="col-label">Current Issue:</label>
+						<textarea class="form-control" id="issue" rows="3" placeholder="Enter your current issue"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="insurance" class="col-label">Do you have insurance?</label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="insurance" id="insurance-yes" value="yes" required>
+							<label class="form-check-label" for="insurance-yes">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="insurance" id="insurance-no" value="no" required>
+							<label class="form-check-label" for="insurance-no">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+</html>
