@@ -55,7 +55,7 @@ Please adhere to the licensing and usage policies specified in the repository. I
 
 ## Acknowledgments
 
-We would like to acknowledge the contributors and teams involved in curating the Smartflow dataset. Without their efforts, this valuable resource would not be available. Thank you to everyone who has contributed to the dataset.
+We would like to acknowledge the contributors and teams involved in curating the SmartFlow dataset. Without their efforts, this valuable resource would not be available. Thank you to everyone who has contributed to the dataset.
 
 If you have any questions or need further assistance, please feel free to reach out to us.
 
